@@ -1,44 +1,261 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Crumbly Delights - Home</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Crumbly Delights - Artisan Bakery & Coffee Shop | Fresh Pastries Polokwane</title>
+  <meta name="description" content="Crumbly Delights - Polokwane's favorite artisan bakery. Fresh pastries, cakes, coffee & tea baked daily with love. Visit our cozy bakery today!">
+  <meta name="keywords" content="bakery Polokwane, fresh pastries, artisan bread, coffee shop, cakes, croissants, breakfast cafe">
+  <meta name="author" content="Crumbly Delights">
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
+  <style>
+  :root{
+    --bg: #fbf8f6;
+    --ink: #1c1b1b;
+    --accent: #d97f6b;
+    --muted: #7b6b6a;
+    --card: #fff;
+    --radius: 12px;
+    --max: 1200px;
+    --gap: 28px;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{
+    margin:0;
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: url('../assets/nathan-dumlao-KixfBEdyp64-unsplash.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color:var(--ink);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    line-height:1.6;
+    padding:28px;
+    display:flex;
+    justify-content:center;
+  }
+  .site{max-width:var(--max); width:100%; background:rgba(255,255,255,0.88); border-radius:14px; padding:18px;}
+
+  .header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:12px;
+    padding:8px 0;
+  }
+  .brand {
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .brand img{
+    width:50px; 
+    height:auto;
+    border-radius:8px;
+  }
+  .brand h1{
+    font-family: "Playfair Display", serif;
+    font-size:1.35rem;
+    margin:0;
+    color:var(--ink);
+  }
+  .brand .tag{color:var(--muted); font-size:0.95rem}
+
+  .nav {
+    display:flex;
+    gap:18px;
+    align-items:center;
+  }
+  .nav a{
+    color:var(--muted);
+    text-decoration:none;
+    font-weight:600;
+    font-size:0.95rem;
+    padding:6px 10px;
+    border-radius:8px;
+  }
+  .nav a:hover{color:var(--ink); background:rgba(0,0,0,0.03)}
+
+  .hero {
+    margin-top:18px;
+    background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.98));
+    padding:36px;
+    border-radius:0 0 14px 14px;
+    text-align:center;
+    box-shadow:0 10px 30px rgba(30,25,20,0.06);
+  }
+  .hero h2{
+    font-family:"Playfair Display", serif;
+    font-size:2rem;
+    color:var(--ink);
+    margin-bottom:6px;
+    font-weight:600;
+  }
+  .hero p{ color:var(--muted); max-width:720px; margin:0 auto 18px; }
+  .hero .hero-img{
+    width:100%;
+    max-width:980px;
+    height:auto;
+    border-radius:12px;
+    display:block;
+    margin:16px auto 0;
+    box-shadow:0 18px 40px rgba(20,15,10,0.08);
+    transition: transform .35s ease;
+  }
+  .hero .hero-img:hover{ transform: translateY(-6px) }
+
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+  }
+  .feature-card {
+    background: var(--card);
+    padding: 0;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(25,20,18,0.04);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+  }
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+  .feature-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    display: block;
+  }
+  .feature-card-content {
+    padding: 20px;
+  }
+  .feature-card h3 {
+    font-family: "Playfair Display", serif;
+    margin: 0 0 10px 0;
+    color: var(--ink);
+    font-size: 1.2rem;
+  }
+  .feature-card p {
+    color: var(--muted);
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .counter-section {
+    text-align: center;
+    margin: 30px 0;
+    padding: 20px;
+    background: rgba(217,127,107,0.1);
+    border-radius: 12px;
+  }
+  .counter {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--accent);
+  }
+
+  .footer {
+    margin-top:28px;
+    padding:18px;
+    text-align:center;
+    color:var(--muted);
+    font-size:0.95rem;
+  }
+
+  @media (max-width:760px){
+    body{padding:18px}
+    .hero h2{font-size:1.6rem}
+    .features {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+  }
+  </style>
 </head>
 <body>
+  <div class="site">
+    <header class="header">
+      <div class="brand">
+        <img src="../assets/Hero.jpg" alt="Crumbly Delights Bakery Logo - Artisan pastries and coffee">
+        <div>
+          <h1>Crumbly Delights</h1>
+          <div class="tag">Baked with Love, Shared with Joy</div>
+        </div>
+      </div>
 
-  <header>
-    <h1 style="text-align: center;">Crumbly Delights</h1>
-    <p style="text-align: center;">Baked with Love, Shared with Joy</p>
+      <nav class="nav">
+        <a href="./index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="menu.html">Menu</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+        <a href="enquiry.html">Enquire</a>
+      </nav>
+    </header>
 
-    <div style="text-align: right;">
-      <a href="./index.html">Home</a> |
-      <a href="./pages/about.html">About</a> |
-      <a href="./pages/menu.html">Menu</a> |
-      <a href="./pages/gallery.html">Gallery</a> |
-      <a href="./pages/contact.html">Contact</a>
-    </div>
-    <hr>
-  </header>
+    <main class="hero">
+      <h2>Welcome to Crumbly Delights</h2>
+      <p>Fresh pastries, cakes and treats crafted daily — a warm place to enjoy something sweet.</p>
 
-  <main>
-    <div style="text-align: center;">
-      <h2>Welcome to Crumbly Delights!</h2>
-      <p>Freshly baked treats, cakes, and pastries made with love every day.</p>
-      <img src="./assets/Logo.jpg" alt="Logo" width="300">
-    </div>
-  </main>
+      <div class="features">
+        <div class="feature-card">
+          <img src="../assets/bakery.jpg" alt="Fresh bakery items including bread and pastries">
+          <div class="feature-card-content">
+            <h3>Fresh Daily</h3>
+            <p>New batches baked every morning at 6 AM</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="../assets/nathan-dumlao-KixfBEdyp64-unsplash.jpg" alt="Artisan coffee and espresso drinks">
+          <div class="feature-card-content">
+            <h3>Artisan Coffee</h3>
+            <p>Premium coffee blends & specialty teas</p>
+          </div>
+        </div>
+        <div class="feature-card">
+          <img src="../assets/catering.jpg" alt="Catering setup for events and parties">
+          <div class="feature-card-content">
+            <h3>Catering</h3>
+            <p>Custom orders for events & celebrations</p>
+          </div>
+        </div>
+      </div>
 
-  <footer>
-    <div style="text-align: center;">
-      <p>&copy; 2022 Crumbly Delights. All rights reserved.</p>
-    </div>
-  </footer>
 
+      <div class="counter-section">
+        <h3>Today's Fresh Bakes</h3>
+        <div class="counter">0</div>
+        <p>pastries baked this morning</p>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>© 2024 Crumbly Delights. All rights reserved. | Polokwane Artisan Bakery</p>
+    </footer>
+  </div>
+
+  <script>
+
+    function animateCounter() {
+      const counter = document.querySelector('.counter');
+      let count = 0;
+      const target = 247;
+      
+      const interval = setInterval(() => {
+        count += 5;
+        if (count >= target) {
+          count = target;
+          clearInterval(interval);
+        }
+        counter.textContent = count;
+      }, 50);
+    }
+
+    window.addEventListener('load', animateCounter);
+  </script>
 </body>
-
 </html>
-
